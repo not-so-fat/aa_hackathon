@@ -5,11 +5,11 @@ const DEMO_SCENARIOS: Record<string, { goal: string; instructions: string }> = {
   "hackathon-demo": {
     goal: "Write a secure authentication module in JavaScript. First research common vulnerabilities and best practices using Tavily, then write the code.",
     instructions:
-      "First request Scoped Access (request_scoped_access) with allowed_domains: api.tavily.com. Then use tavily_search to research: (1) common auth vulnerabilities (OWASP), (2) secure password handling best practices, (3) latest security advisories for Node.js auth libraries. Summarize findings, then write secure code that avoids the vulnerabilities you found.",
+      "First request Scoped Access (request_scoped_access) with allowed_domains: api.tavily.com. Then use tavily_search to research: (1) common auth vulnerabilities (OWASP), (2) secure password handling best practices, (3) recent security advisories for Node.js. Summarize findings, then write secure code that avoids the vulnerabilities. Do NOT use Neo4j tools.",
   },
   "security-research": {
     goal: "Research security vulnerabilities and best practices for a coding task, then write secure code.",
-    instructions: "Request Scoped Access if needed, then use tavily_search to find CVEs, security best practices, and recent advisories related to the user's task. Summarize findings and write code that follows secure patterns.",
+    instructions: "Request Scoped Access if needed, then use tavily_search to find CVEs, security best practices, and recent advisories. Summarize findings and write code. Do NOT use Neo4j.",
   },
 };
 
