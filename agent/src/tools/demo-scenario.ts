@@ -3,24 +3,24 @@ import { z } from "zod";
 
 const DEMO_SCENARIOS: Record<string, { goal: string; instructions: string }> = {
   "hackathon-demo": {
-    goal: "Research the top 3 sponsor tools for AI agents at this hackathon. Store each finding in Neo4j and then summarize.",
+    goal: "Write a secure authentication module in JavaScript. First research common vulnerabilities and best practices using Tavily, then write the code.",
     instructions:
-      "First request Scoped Access (request_scoped_access) with allowed_domains including api.tavily.com and your Neo4j host. Then use tavily_search for 2-3 queries, store findings with neo4j_store_finding, then neo4j_query to read back and produce a short summary.",
+      "First request Scoped Access (request_scoped_access) with allowed_domains: api.tavily.com. Then use tavily_search to research: (1) common auth vulnerabilities (OWASP), (2) secure password handling best practices, (3) latest security advisories for Node.js auth libraries. Summarize findings, then write secure code that avoids the vulnerabilities you found.",
   },
-  research: {
-    goal: "Research a topic the user provides; store findings in the knowledge graph and summarize.",
-    instructions: "Request Scoped Access if needed, then search with Tavily, store findings in Neo4j, query and summarize.",
+  "security-research": {
+    goal: "Research security vulnerabilities and best practices for a coding task, then write secure code.",
+    instructions: "Request Scoped Access if needed, then use tavily_search to find CVEs, security best practices, and recent advisories related to the user's task. Summarize findings and write code that follows secure patterns.",
   },
 };
 
 const demoScenarioSchema = z.object({
-  name: z.enum(["hackathon-demo", "research"]).describe("Scenario name"),
+  name: z.enum(["hackathon-demo", "security-research"]).describe("Scenario name"),
 });
 
 export const setDemoScenarioTool = createTool({
   id: "set_demo_scenario",
   description:
-    "Set a demo scenario that defines a predefined goal and instructions. Use 'hackathon-demo' for the 3-minute sponsor research demo, or 'research' for generic research.",
+    "Set a demo scenario: 'hackathon-demo' = security research before coding; 'security-research' = research vulnerabilities and write secure code.",
   inputSchema: demoScenarioSchema,
   outputSchema: z.object({
     success: z.boolean(),

@@ -8,18 +8,22 @@ See **[DESIGN.md](./DESIGN.md)** for full design, framework choice (Mastra), arc
 
 | Sponsor | Role |
 |--------|------|
-| **Tavily** | Web search / research for the agent |
-| **Neo4j** | Knowledge graph (Topic → Finding → Source) |
-| **Render** | Hosting for demo (optional 4th: Reka Vision) |
+| **Tavily** | Web search — agent uses it to research security vulnerabilities, CVEs, and best practices BEFORE writing code |
+| **Neo4j** | Knowledge graph (optional) — store security findings |
+| **Render** | Hosting for demo (optional) |
 
-## Quick start (after implementation)
+## Demo scenario
+
+**Security-first coding agent:** Before writing any code, the agent researches common vulnerabilities (OWASP, CVEs), latest security best practices, and real-time advisories using Tavily. This grounds the agent in real-time security knowledge and produces more secure code.
+
+## Quick start
 
 ```bash
 cd agent
 cp .env.example .env   # Set GROQ_API_KEY (or OPENAI_API_KEY), TAVILY_API_KEY, NEO4J_*, PULSE_BASE_URL, etc.
 npm install
 npm run build
-node dist/index.js "Research top 3 sponsor tools for AI agents"
+node dist/index.js "Write a secure authentication module in JavaScript. Research common vulnerabilities first."
 # Or with a goal as first argument:
 node dist/index.js "Your goal here"
 ```
