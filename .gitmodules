@@ -1,0 +1,8 @@
+[submodule "pulse"]
+	path = pulse
+	url = https://github.com/not-so-fat/agent-pulse.git
+
+[submodule "watchdog"]
+	path = watchdog
+	url = https://github.com/isabellakqq/Agent-WatchDog.git
+
