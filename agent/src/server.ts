@@ -34,9 +34,9 @@ const CHAT_HTML = `<!DOCTYPE html>
       justify-content: space-between;
     }
     .top-bar h1 { margin: 0; font-size: 1.25em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-    .container { display: flex; flex: 1; min-height: 0; }
-    .chat-col { flex: 1; display: flex; flex-direction: column; border-right: 1px solid #708090; min-width: 0; }
-    .progress-col { width: 340px; display: flex; flex-direction: column; background: rgba(0,0,0,0.2); }
+    .container { display: flex; flex: 1; min-height: 0; overflow: hidden; }
+    .chat-col { flex: 1; display: flex; flex-direction: column; border-right: 1px solid #708090; min-width: 0; overflow: hidden; }
+    .progress-col { width: 380px; flex-shrink: 0; display: flex; flex-direction: column; background: rgba(0,0,0,0.2); overflow: hidden; }
     .progress-col h2 {
       margin: 0; padding: 12px 16px; font-size: 0.75em; font-weight: 600;
       text-transform: uppercase; letter-spacing: 0.08em; color: #708090;
@@ -46,12 +46,12 @@ const CHAT_HTML = `<!DOCTYPE html>
       flex: 1; overflow-y: auto; padding: 12px; font-size: 0.85em;
       font-family: 'IBM Plex Mono', monospace;
     }
-    .progress-item { margin-bottom: 10px; padding: 8px 10px; border: 1px solid #708090; }
+    .progress-item { margin-bottom: 10px; padding: 8px 10px; border: 1px solid #708090; overflow: hidden; word-break: break-word; }
     .progress-item.tool-call { border-left: 3px solid #4FD1C5; }
     .progress-item.tool-result { border-left: 3px solid #708090; color: #9ca3af; }
     .progress-item.error { border-left: 3px solid #8B0000; color: #8B0000; }
     .progress-item .name { font-weight: 600; color: #4FD1C5; }
-    .progress-item .preview { margin-top: 4px; color: #9ca3af; font-size: 0.9em; max-height: 60px; overflow: hidden; text-overflow: ellipsis; }
+    .progress-item .preview { margin-top: 4px; color: #9ca3af; font-size: 0.9em; max-height: 60px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     #messages {
       flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 16px;
     }
