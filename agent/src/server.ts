@@ -13,7 +13,7 @@ const CHAT_HTML = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Agent Chat</title>
+  <title>Agent Watchdog</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
     * { box-sizing: border-box; }
@@ -83,7 +83,7 @@ const CHAT_HTML = `<!DOCTYPE html>
 </head>
 <body>
   <div class="top-bar">
-    <h1>Agent Chat</h1>
+    <h1>Agent Watchdog</h1>
     <span style="font-size:0.8em; color:#708090;">Plan & progress →</span>
   </div>
   <div class="container">
