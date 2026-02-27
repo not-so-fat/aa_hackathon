@@ -69,13 +69,14 @@ const CHAT_HTML = `<!DOCTYPE html>
       font-family: 'Inter', sans-serif; font-size: 0.95em; resize: none;
     }
     #goal-input:focus { outline: none; border-color: #4FD1C5; }
-    #send-btn {
+    #send-btn, #demo-btn {
       padding: 10px 20px; border: 1px solid #4FD1C5; background: #0D0D0D; color: #4FD1C5;
       font-family: 'Inter', sans-serif; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em;
       cursor: pointer;
     }
-    #send-btn:hover { background: rgba(79, 209, 197, 0.1); }
-    #send-btn:disabled { opacity: 0.5; cursor: not-allowed; border-color: #708090; color: #708090; }
+    #demo-btn { background: #1a3a3a; border-color: #4FD1C5; }
+    #send-btn:hover, #demo-btn:hover { background: rgba(79, 209, 197, 0.1); }
+    #send-btn:disabled, #demo-btn:disabled { opacity: 0.5; cursor: not-allowed; border-color: #708090; color: #708090; }
     .loading { color: #708090; }
     .error-msg { color: #8B0000; }
   </style>
@@ -89,7 +90,8 @@ const CHAT_HTML = `<!DOCTYPE html>
     <div class="chat-col">
       <div id="messages"></div>
       <div class="input-row">
-        <textarea id="goal-input" rows="2" placeholder="Enter a goal (e.g. Research top 3 sponsor tools for AI agents)"></textarea>
+        <textarea id="goal-input" rows="2" placeholder="Enter a coding task (e.g. Write a secure auth module in JavaScript)"></textarea>
+        <button id="demo-btn" type="button">Start Security Demo</button>
         <button id="send-btn" type="button">Send</button>
       </div>
     </div>
@@ -200,6 +202,14 @@ const CHAT_HTML = `<!DOCTYPE html>
     sendBtn.addEventListener('click', send);
     goalInput.addEventListener('keydown', function(e) {
       if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+    });
+
+    // Demo button - auto-fill security prompt
+    const demoBtn = document.getElementById('demo-btn');
+    const DEMO_PROMPT = "Write a secure authentication module in JavaScript. First research common vulnerabilities and best practices using Tavily, then write the code.";
+    demoBtn.addEventListener('click', function() {
+      goalInput.value = DEMO_PROMPT;
+      send();
     });
   </script>
 </body>
