@@ -85,7 +85,9 @@ const CHAT_HTML = `<!DOCTYPE html>
 <body>
   <div class="top-bar">
     <h1>Agent Watchdog</h1>
-    <span style="font-size:0.8em; color:#708090;">Plan & progress →</span>
+    <span style="font-size:0.8em; color:#708090;">
+      <a href="http://localhost:4020" target="_blank" style="color:#4FD1C5;text-decoration:none;">Pulse Portal</a> &nbsp;|&nbsp; Plan & progress →
+    </span>
   </div>
   <div class="container">
     <div class="chat-col">

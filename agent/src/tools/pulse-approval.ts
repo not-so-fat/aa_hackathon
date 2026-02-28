@@ -75,6 +75,7 @@ export const requestScopedAccessTool = createTool({
     }
 
     if (!input.poll_until_approved) {
+      console.log(`\n=== APPROVAL REQUIRED ===\nOpen in browser: ${data.approval_url}\n===========================\n`);
       return {
         status: "pending" as const,
         approval_url: data.approval_url,
@@ -82,6 +83,8 @@ export const requestScopedAccessTool = createTool({
         message: "User must open approval_url in a browser and approve. Then poll GET /request-scoped-access/" + data.request_id,
       };
     }
+
+    console.log(`\n=== APPROVAL REQUIRED ===\nOpen in browser: ${data.approval_url}\n===========================\n`);
 
     const deadline = Date.now() + 5 * 60 * 1000;
     while (Date.now() < deadline) {
